@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DellTest.Views.ContactsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:DellTest.ViewModels"  
+             xmlns:model="clr-namespace:DellTest.Models"  
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddCommand}" />
+    </ContentPage.ToolbarItems>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="LightBlue" >
+            <CollectionView  ItemsSource="{Binding Contacts}"  >
+                <CollectionView.Header>
+                    <StackLayout HorizontalOptions="Center" Spacing="20" Padding="15" Margin="10">
+                        <Label Text="Contacts" HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="15" CornerRadius="30" BorderColor="Blue" Margin="10">
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" x:DataType="model:Contact"  Spacing="5" Padding="5" >
+                            <Label  Text="{Binding Name}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:ContactsViewModel}}, Path=SelectedCommand}"		
+                                    CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+</ContentPage>

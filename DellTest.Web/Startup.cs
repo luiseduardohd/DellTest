@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using DellTest.Models;
+using DellTest.Repositories;
 
 namespace DellTest.Web
 {
@@ -25,6 +26,7 @@ namespace DellTest.Web
         {
             services.AddControllers();
             services.AddSingleton<IItemRepository, ItemRepository>();
+            services.AddSingleton<IContactRepository, ContactRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

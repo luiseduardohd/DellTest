@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DellTest.Views.ContactDetailPage">
+    <ContentPage.Content>
+        <Frame Padding="15" CornerRadius="30" BorderColor="Blue">
+            <StackLayout Spacing="20" Padding="15" >
+                <Label Text="Id:" FontSize="Medium" />
+                <Label Text="{Binding Id}" FontSize="Small"/>
+                <Label Text="Name:" FontSize="Medium" />
+                <Editor Text="{Binding Name}" FontSize="Small"/>
+                <Label Text="Company:" FontSize="Medium" />
+                <Editor Text="{Binding Company}" FontSize="Small"/>
+
+                <Button Text="{Binding ActionText}" Command="{Binding SaveCommand}" />
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>
