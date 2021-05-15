@@ -9,9 +9,13 @@
                 <Label Text="Id:" FontSize="Medium" />
                 <Label Text="{Binding Id}" FontSize="Small"/>
                 <Label Text="Name:" FontSize="Medium" />
-                <Editor Text="{Binding Name}" FontSize="Small"/>
+                <StackLayout BackgroundColor="Black" Padding="1"> 
+                    <Editor Text="{Binding Name}" FontSize="Small" BackgroundColor="White"/>
+                </StackLayout>
                 <Label Text="Company:" FontSize="Medium" />
-                <Editor Text="{Binding Company}" FontSize="Small"/>
+                <StackLayout BackgroundColor="Black" Padding="1">
+                    <Editor Text="{Binding Company}" FontSize="Small" BackgroundColor="White"/>
+                </StackLayout>
 
                 <Button Text="{Binding ActionText}" Command="{Binding SaveCommand}" />
             </StackLayout>

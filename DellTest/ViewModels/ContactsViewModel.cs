@@ -69,8 +69,10 @@ namespace DellTest.ViewModels
 
         public async Task InitializeAsync()
         {
+            await Task.Delay(500);
             using (UserDialogs.Instance.Loading("Loading"))
             {
+                await Task.Delay(500);
                 var iEnumerableContacts = await ContactsService.GetContacts();
 
                 _contacts.Clear();

@@ -13,8 +13,7 @@ namespace DellTest.Services
             get;
             set;
         }
-
-        public ContactServiceMock()
+        static ContactServiceMock()
         {
             Contacts = new List<Contact>() {
                 new Contact()
@@ -34,6 +33,10 @@ namespace DellTest.Services
                     Company="CompanyTest",
                 },
             };
+        }
+
+        public ContactServiceMock()
+        {
         }
 
         public async Task<Contact> AddNewContact(Contact contact)
